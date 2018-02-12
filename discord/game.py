@@ -55,18 +55,19 @@ class Game:
         The type of game being played. 1 indicates "Streaming".
     """
 
-    __slots__ = ('name', 'type', 'url')
+    __slots__ = ('name', 'type', 'url', 'details')
 
     def __init__(self, **kwargs):
         self.name = kwargs.get('name')
         self.url = kwargs.get('url')
         self.type = kwargs.get('type', 0)
+        self.details = kwargs.get('details')
 
     def __str__(self):
         return str(self.name)
 
     def __repr__(self):
-        return '<Game name={0.name!r} type={0.type!r} url={0.url!r}>'.format(self)
+        return '<Game name={0.name!r} type={0.type!r} url={0.url!r} details={0.details!r}>'.format(self)
 
     def _iterator(self):
         for attr in self.__slots__:
